@@ -6,7 +6,7 @@ public class Program
     public static void Main(string[] args)
     {
         // Initialize a queue with some integer values
-        Queue<int> q = new Queue<int>(new[] { 5, 11, 6, 9, 6, 6, 3 });
+        Queue<int> q = new Queue<int>(new[] { 5, 11, 6, 9, 3, 6, 3 });
         
         //Asking the user about which number he wants the information
         Console.WriteLine("Type in the index of the element you want to see. Index count starts with 0.");
