@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+ 
 public class OppositeSubsequence
 {
     // Method to calculate the width of the subsequence between a number and its opposite in a list
