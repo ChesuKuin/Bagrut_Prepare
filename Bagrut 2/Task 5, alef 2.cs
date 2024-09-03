@@ -1,0 +1,60 @@
+using System;
+
+public class Lesson
+{
+    private int id;
+    private int hh;
+    private int mm;
+    private int duration;
+
+    public Lesson(int id, int hh, int mm, int duration)
+    {
+        this.id = id;
+        this.hh = hh;
+        this.mm = mm;
+        this.duration = duration;
+    }
+
+    public int GetId() => id;
+    public int GetHH() => hh;
+    public int GetMM() => mm;
+    public int GetDuration() => duration;
+
+    public bool IsLater(Lesson other)
+    {
+        if (this.hh > other.hh) return true;
+        if (this.hh == other.hh && this.mm > other.mm) return true;
+        return false;
+    }
+
+    public static int Last(Lesson[] a)
+    {
+        Lesson lastLesson = a[0];
+
+        for (int i = 1; i < a.Length; i++)
+        {
+            if (a[i].IsLater(lastLesson))
+            {
+                lastLesson = a[i];
+            }
+        }
+
+        return lastLesson.GetId();
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Lesson[] lessons = new Lesson[]
+        {
+            new Lesson(1, 8, 30, 45),
+            new Lesson(2, 9, 15, 30),
+            new Lesson(1, 10, 0, 60),
+            new Lesson(3, 11, 0, 90)
+        };
+
+        Console.WriteLine("Last lesson id: " + Lesson.Last(lessons));
+    }
+}
